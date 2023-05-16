@@ -1,8 +1,15 @@
 const { Course, Student } = require('../models');
 
 module.exports = {
-  // Get all courses
-  async getCourses(req, res) {
+  // getUsers
+  // getUser
+  // createUser
+  // updateUser
+  // deleteUser
+  // addFriend
+  // removeFriend
+
+  async getUsers(req, res) {
     try {
       const courses = await Course.find();
       res.json(courses);
@@ -10,8 +17,10 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  // Get a course
-  async getSingleCourse(req, res) {
+
+
+  // Get a user
+  async getUser(req, res) {
     try {
       const course = await Course.findOne({ _id: req.params.courseId })
         .select('-__v');
@@ -25,8 +34,10 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  // Create a course
-  async createCourse(req, res) {
+
+
+  // Create a user
+  async createUser(req, res) {
     try {
       const course = await Course.create(req.body);
       res.json(course);
@@ -35,8 +46,10 @@ module.exports = {
       return res.status(500).json(err);
     }
   },
-  // Delete a course
-  async deleteCourse(req, res) {
+
+
+  // Delete a user
+  async deleteUser(req, res) {
     try {
       const course = await Course.findOneAndDelete({ _id: req.params.courseId });
 
@@ -50,8 +63,10 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  // Update a course
-  async updateCourse(req, res) {
+
+
+  // Update a user
+  async updateUser(req, res) {
     try {
       const course = await Course.findOneAndUpdate(
         { _id: req.params.courseId },
@@ -68,4 +83,13 @@ module.exports = {
       res.status(500).json(err);
     }
   },
+
+  
+  // addFriend
+  
+  
+  // removeFriend
+
+
 };
+
